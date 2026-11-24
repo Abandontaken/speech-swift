@@ -76,7 +76,7 @@ Speech Swift पैकेज के सत्यापन योग्य सं
 **LLM और अनुवाद**
 
 - **[Qwen3Chat](https://soniqo.audio/hi/guides/chat)** — ऑन-डिवाइस LLM चैट (Qwen3.5-0.8B MLX/CoreML के साथ dense Qwen3 4B और Gemma 4 E2B/E4B MLX बैकएंड, स्ट्रीमिंग टोकन)
-- **[Inkling2Chat](docs/models/inkling2-mini.md)** — Inkling 2 Mini से स्थानीय टेक्स्ट और स्थिर चित्रों पर तर्क (26.4B MoE, MLX INT4/INT5, स्ट्रीमिंग; Qwen3Chat में शामिल)
+- **[Inkling2Chat](docs/models/inkling2-mini.md) / [Inkling2CoreMLChat](docs/inference/inkling2-mini-coreml.md)** — Inkling 2 Mini से स्थानीय टेक्स्ट और स्थिर चित्रों पर तर्क (26.4B MoE, MLX INT4/INT5 + CoreML INT8, स्ट्रीमिंग; Qwen3Chat में शामिल)
 - **[FunctionGemma](https://soniqo.audio/hi/guides/function-calls)** — संरचित फ़ंक्शन / टूल कॉल के लिए ऑन-डिवाइस LLM (Gemma 3 270M, CoreML 8-बिट पैलेटाइज़, Neural Engine, ~252 tok/s)
 - **[MADLAD-400](https://soniqo.audio/hi/guides/translate)** — 400+ भाषाओं में बहु-दिशात्मक अनुवाद (3B, MLX INT4 + INT8, T5 v1.1, Apache 2.0)
 - **[GLiNER2.5-Decide](https://soniqo.audio/hi/guides/gliner)** - दिए गए लेबल के अनुसार लोकल टेक्स्ट वर्गीकरण और एंटिटी स्पैन निष्कर्षण (DeBERTa-v3-large एनकोडर, MLX, INT8/FP16/FP32; डेवलपमेंट प्रीव्यू, Apache 2.0)
@@ -216,7 +216,7 @@ struct DictateView: View {
 | [VibeVoice 1.5B](https://soniqo.audio/hi/guides/vibevoice) | टेक्स्ट → स्पीच (90 मिनट तक पॉडकास्ट) | MLX | 1.5B | EN/ZH |
 | [Magpie-TTS Multilingual](https://soniqo.audio/hi/guides/magpie) | टेक्स्ट → वाक् (5 पूर्व-निर्धारित वक्ता, स्ट्रीमिंग) | MLX / CoreML | 357M (MLX INT8, CoreML INT8) | 9 (CoreML में JA नहीं) |
 | [Qwen3.5 Chat](docs/models/qwen35-chat.md) | Text → Text (LLM) | MLX, CoreML | 0.8B | Multi |
-| [Inkling 2 Mini](docs/models/inkling2-mini.md) | टेक्स्ट + चित्र → टेक्स्ट | MLX | 26.4B MoE (INT4/INT5) | EN + 5 भाषाओं के उदाहरण |
+| [Inkling 2 Mini](docs/models/inkling2-mini.md) | टेक्स्ट + चित्र → टेक्स्ट | MLX / CoreML | 26.4B MoE (INT4/INT5/INT8) | EN + 5 भाषाओं के उदाहरण |
 | [Qwen3 Dense Chat](docs/models/qwen3-dense-chat.md) | Text → Text (LLM) | MLX | 4B | Multi |
 | [Gemma 4 Chat](docs/models/gemma4-chat.md) | Text → Text (LLM) | MLX | E2B / E4B (4-bit) | Multi |
 | [FunctionGemma](https://soniqo.audio/hi/guides/function-calls) | टेक्स्ट → टूल कॉल (LLM) | CoreML | 270M | EN |
@@ -230,7 +230,6 @@ struct DictateView: View {
 | [Silero VAD](https://soniqo.audio/hi/guides/vad) | वॉयस एक्टिविटी डिटेक्शन | MLX, CoreML | 309K | भाषा-तटस्थ |
 | [Smart Turn v3.2](https://huggingface.co/aufklarer/Smart-Turn-v3.2-CoreML) | एंड-ऑफ़-टर्न डिटेक्शन | CoreML | 8M | 23 भाषाएँ |
 | [p99 turn-1-mini](docs/models/p99-turn-mini.md) | स्ट्रीमिंग में बोलने की बारी समाप्त होने का अनुमान | CoreML | 5.3M | अंग्रेज़ी |
-| [VAP (otoSpeech)](docs/models/vap.md) | दो चैनल की वाणी गतिविधि का अनुमान | CoreML | 5.8M | अंग्रेज़ी |
 | [KWS Zipformer](docs/models/kws-zipformer.md) | Audio → Wake word | CoreML (ANE) | 3M | EN/custom keywords |
 | [Pyannote](https://soniqo.audio/hi/guides/diarize) | VAD + Diarization | MLX | 1.5M | भाषा-तटस्थ |
 | [Pyannote Community-1](https://huggingface.co/aufklarer/Pyannote-Community-1-CoreML) | Diarization + स्पीकर embeddings | CoreML (ANE) + Swift VBx | 8.35M | भाषा-तटस्थ |
